@@ -7,6 +7,10 @@
     <groupId>com.forty.viro</groupId>
     <artifactId>viro-master</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>viro-common</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
