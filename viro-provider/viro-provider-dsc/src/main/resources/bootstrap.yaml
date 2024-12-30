@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      config:
+        file-extension: yaml
+        group: APPLICATION_CONFIG
+        name: viro-provider-dsc
+        # dev
+        namespace: c2b0b0f8-aa12-45d0-8fff-56729e2da717

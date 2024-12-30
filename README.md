@@ -10,6 +10,25 @@
 
 ![design/framework.png](design/framework.png)
 
+## 项目结构
+
+
+## 项目运行 
+
+1. 建表：复制`config/init-mysql-db.sql`的sql语句进行建库建表
+2. 创造数据：使用脚本生成假数据 `config/faker_data.py`
+
+## 项目计划
+
+设计数据库表
+
+造数据（使用python的faker包造50w数据）
+
+## 技术栈
+
+前端： React | uniapp
+
+后端： java17 + spring boot3 + nacos(配置中心) + Dubbo(RPC框架) + kafka | RocketMQ(消息中间件) + MySQL(关系型数据库) + Redis(缓存)
 
 
 ## 业务流程
