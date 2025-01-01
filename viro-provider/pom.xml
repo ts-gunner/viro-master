@@ -21,8 +21,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.forty.viro</groupId>
-            <artifactId>viro-common-core</artifactId>
+            <groupId>com.forty.viro.common</groupId>
+            <artifactId>viro-common-base</artifactId>
         </dependency>
 
         <dependency>

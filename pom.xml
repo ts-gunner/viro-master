@@ -17,8 +17,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>viro-provider</module>
-        <module>viro-common-core</module>
         <module>viro-gateway</module>
+        <module>viro-common</module>
     </modules>
 
     <properties>
@@ -36,9 +36,19 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.forty.viro</groupId>
-                <artifactId>viro-common-core</artifactId>
-                <version>1.0.0</version>
+                <groupId>com.forty.viro.common</groupId>
+                <artifactId>viro-common-base</artifactId>
+                <version>${viro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.forty.viro.common</groupId>
+                <artifactId>viro-common-ai</artifactId>
+                <version>${viro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.forty.viro.common</groupId>
+                <artifactId>viro-common-config</artifactId>
+                <version>${viro.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>

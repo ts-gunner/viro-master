@@ -3,8 +3,9 @@ package com.forty.viro.provider.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.forty.viro.core.dto.dsc.DscUserInfoRequest;
-import com.forty.viro.core.model.BaseResponse;
+
+import com.forty.viro.common.dto.dsc.DscUserInfoRequest;
+import com.forty.viro.common.model.BaseResponse;
 import com.forty.viro.provider.mapper.DscUserInfoMapper;
 import com.forty.viro.provider.model.DscUserInfo;
 import com.forty.viro.provider.vo.DscUserInfoVo;
