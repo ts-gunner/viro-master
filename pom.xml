@@ -51,6 +51,11 @@
                 <version>${viro.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.forty.viro.common</groupId>
+                <artifactId>viro-common-api</artifactId>
+                <version>${viro.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>5.8.21</version>

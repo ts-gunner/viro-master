@@ -1,12 +1,15 @@
 package com.forty.viro.provider.controller;
 
 
+import cn.hutool.core.convert.Convert;
+import cn.hutool.json.JSONUtil;
 import com.forty.viro.common.ViroCoreConfig;
 import com.forty.viro.common.enums.AiRoleEnum;
 import com.forty.viro.common.enums.DeepSeekModelEnum;
 import com.forty.viro.common.factory.AiModelFactory;
 import com.forty.viro.common.model.AiMessage;
 import com.forty.viro.common.model.BaseAiModel;
+import com.forty.viro.common.model.SseEvent;
 import com.forty.viro.common.properties.DeepSeekProperties;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
@@ -40,9 +44,23 @@ public class ChatController {
         aiMessages.add(new AiMessage(AiRoleEnum.USER, question));
         Stream<String> chatStream = model.chatWithStream(aiMessages);
         executor.execute(() -> {
+            // send connect successful message
+            try {
+                emitter.send(Convert.strToUnicode(JSONUtil.toJsonStr(SseEvent.builder()
+                        .event("connection")
+                        .data("ok")
+                        .build())));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             chatStream.forEach(str -> {
                 try {
-                    emitter.send(str);
+                    SseEvent aiContext = SseEvent.builder()
+                            .event("ai_context")
+                            .data(str)
+                            .build();
+                    emitter.send(Convert.strToUnicode(JSONUtil.toJsonStr(aiContext)));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

@@ -14,6 +14,7 @@
         <module>viro-common-base</module>
         <module>viro-common-ai</module>
         <module>viro-common-config</module>
+        <module>viro-common-api</module>
     </modules>
 
 
